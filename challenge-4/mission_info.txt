@@ -1,0 +1,18 @@
+Mission: Find the Classified Info
+
+Objective:
+Your mission, is to find the highly classified information intercepted from the enemy's communication channel.
+
+Instructions:
+1. SSH into the server where the chat exists
+2. Use your knowledge to gain the trust of the worker
+3. Be patient
+
+Hints:
+- Pay close attention to any small details from the third challenge
+
+Note: Be cautious as there may be traps or misleading information along the way. Stay vigilant!
+
+Good luck, agent!
+
+- Operation Team

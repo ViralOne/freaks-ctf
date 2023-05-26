@@ -1,15 +1,24 @@
-FROM python:latest
+FROM ubuntu:latest
 
-# Copy the necessary Python scripts and resources to the container
-COPY social_engineering.py /app/social_engineering.py
-COPY resources /app/resources
+# Install OpenSSH server
+RUN apt-get update && apt-get install -y openssh-server
 
-# Set the working directory
-WORKDIR /app
+# Install Python
+RUN apt-get install -y python3
 
-# Install required dependencies
-RUN pip install requests
+# Configure SSH server
+RUN mkdir /var/run/sshd
+RUN echo 'root:passwordisnotvalid' | chpasswd
+RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
-# Run the social engineering Python script
-CMD ["python", "social_engineering.py"]
+# Expose SSH port
+EXPOSE 22
 
+# Add the Python script to the image
+COPY chat.py /root/chat.py
+
+# Set the Python script as the entry point
+ENTRYPOINT ["python3", "/root/chat.py"]
+
+# Start the SSH server
+CMD ["/usr/sbin/sshd", "-D"]
