@@ -1,0 +1,18 @@
+Challenge 2: Web Application Vulnerabilities
+
+Welcome to Challenge 2!
+
+Your objective is to identify and exploit a cross-site scripting (XSS) vulnerability in the Example Web App.
+
+To get started, follow these steps:
+
+1. Access the Example Web App: Visit the following URL [provide the URL or IP address] to access the web app.
+2. Login: You can use any username and password to login; authentication is not enforced for this challenge.
+3. Explore the app: After login, you will see a form where you can enter your name.
+4. Exploit the XSS vulnerability: Inject malicious code into the name input field to execute a script and display an alert box with the text "XSS Exploited!".
+
+Capture screenshots or save the necessary information as evidence of successful exploitation.
+
+Good luck!
+
+- Operation Cyber Shield Team

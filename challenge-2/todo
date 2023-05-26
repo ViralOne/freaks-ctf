@@ -1,0 +1,7 @@
+Login
+Main
+
+Logic
+ - Check login details
+ - Each login user will have different data on screen
+ - The good user will have an url/encrypted message in a file that will be the end of challenge 2

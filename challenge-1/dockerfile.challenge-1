@@ -1,0 +1,11 @@
+FROM ubuntu:latest
+
+# Install and configure the vulnerable service
+RUN apt-get update && apt-get install -y vulnerable-service
+
+# Set up the necessary network configuration and expose the vulnerable port
+EXPOSE 21
+
+# Start the vulnerable service
+CMD ["vulnerable-service"]
+

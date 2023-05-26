@@ -1,0 +1,16 @@
+Original Message: "The secret code is 12345"
+
+    Base64 Encoding:
+        Encrypted Message: "VGhlIHNlY3JldCBjb2RlIGlzIDEyMzQ1"
+
+    Caesar Cipher (Shift 3):
+        Encrypted Message: "Wkh vhfxuh frgh lv 45678"
+
+    Vigenere Cipher (Key: "SECRET"):
+        Encrypted Message: "Tli slgioh bgqr ri 12345"
+
+    Rail Fence Cipher (3 Rails):
+        Encrypted Message: "Tt2seecrodc 1h25el 34i"
+
+    Playfair Cipher (Key: "CRYPTO"):
+        Encrypted Message: "OBAGVQXBQXK"

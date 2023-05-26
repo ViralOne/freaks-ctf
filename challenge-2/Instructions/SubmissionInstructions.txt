@@ -1,0 +1,15 @@
+Challenge 2: Web Application Vulnerabilities - Submission Instructions
+
+Congratulations on completing Challenge 2!
+
+To submit your solution, follow these instructions:
+
+1. Take screenshots: Capture screenshots of successful exploits, extracted data, or any evidence of vulnerability exploitation.
+2. Document the steps: Write a brief description of the vulnerabilities you discovered and the techniques you used to exploit them.
+3. Save your files: Save your screenshots and the document in a folder.
+
+Compress the folder into a ZIP file and submit it through the designated submission channel.
+
+Good luck with your submission!
+
+- Operation Cyber Shield Team

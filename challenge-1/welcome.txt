@@ -1,0 +1,13 @@
+Challenge 1: Network Exploitation
+
+Welcome, brave participants, to Challenge 1: Network Exploitation! For your mission, you have to  navigate the treacherous world of hacking and save the world from a nuclear bomb threat. Time is of the essence, and your skills will be put to the test as you uncover vulnerabilities and exploit them to gain access to critical information.
+
+In this challenge, you will be faced with a series of network-based exploits. Your objective is to infiltrate the secure network of an evil organization known as "XIPE Corp" and retrieve the top-secret plans for their nefarious activities. Remember, teamwork and collective problem-solving are key to success, so collaborate with your fellow participants in this thrilling adventure.
+
+Prepare to embark on a journey filled with adrenaline-pumping action, mind-bending puzzles, and cutting-edge hacking techniques. Each challenge will push your limits and expand your knowledge of network exploitation, web application vulnerabilities, cryptography, and social engineering.
+
+Throughout this exhilarating experience, you will encounter obstacles and adversaries, but fear not! Your determination and resourcefulness will guide you to victory. Stay focused, think creatively, and use your newfound hacking skills to outsmart the enemy.
+
+Are you ready to prove your mettle as elite hackers and save the world from imminent destruction? The fate of humanity rests in your hands. Good luck, and may the code be with you!
+
+- The Hackers' Alliance
