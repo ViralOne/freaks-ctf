@@ -1,0 +1,34 @@
+Challenge - 1
+ - Multiple services on multiple ports
+   - Scan for ports
+   - Check for vulnerabilities
+   - Authentificate and get the secret
+      - The secret is user:pass & url
+   - One one of those apps it will be a http server with a file attached to the html hidden kind of thing, where the user needs to look into the source code and save the password for later.
+
+Challenge - 2
+ - PHP WebApp
+   - Login
+   - Home
+      - Each user has a different message
+      - The default user gives access to home
+      - Now need to XSS vulnerability and list all users
+      - One of those users when logged in has a file/message on home this will complete challenge 2
+
+Challenge - 3
+ - By using the file/message from challenge 2
+    - Decrypt the message?
+    - The key needs to be a hint for the python script
+    - The message links to something where the python chat docker runs
+
+Challenge - 4
+ - Go through the challenge in the end it will give an URL
+
+Challenge - 5
+ - Access the web url
+ - Need to scan the IP
+ - One Port has is http that leads to a login page
+    - The credentials can be found on a different port where people need to complete a puzzle
+    - It will be two different challenges to get a user and a pass
+    - Once authentificated it will need two keys
+    - The key will be something from a different challenge that needs to be saved for later
