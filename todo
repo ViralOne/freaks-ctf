@@ -1,4 +1,4 @@
-Challenge - 1
+Challenge - 1 -> to test, kinda done
  - Multiple services on multiple ports
    - Scan for ports
    - Check for vulnerabilities
@@ -28,7 +28,6 @@ Challenge - 5
  - Access the web url
  - Need to scan the IP
  - One Port has is http that leads to a login page
-    - The credentials can be found on a different port where people need to complete a puzzle
-    - It will be two different challenges to get a user and a pass
+    - The credentials are in the page, they need to find them
     - Once authentificated it will need two keys
     - The key will be something from a different challenge that needs to be saved for later
