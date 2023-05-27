@@ -1,7 +1,10 @@
 FROM ubuntu:latest
 
-# Install and configure the vulnerable service & nginx
-RUN apt-get update && apt-get install -y vulnerable-service nginx
+# Install packages
+RUN apt-get update && apt-get install -y \
+    vulnerable-service \
+    nginx \
+    openssh-server
 
 # Create user
 USER mikel
@@ -11,9 +14,16 @@ WORKDIR /home/mikel
 COPY top_secret_plans.txt .
 COPY ./web/index.html /usr/share/nginx/html/
 
-# Set up the necessary network configuration and expose the vulnerable port
-EXPOSE 21
+# Create the worker user
+RUN useradd -m worker && \
+    echo 'worker:enterpassword' | chpasswd
 
+# Enable SSH
+RUN mkdir /var/run/sshd && \
+    echo 'PermitRootLogin no' >> /etc/ssh/sshd_config
+
+# Set up the necessary network configuration and expose the vulnerable ports
+EXPOSE 21
 EXPOSE 80
 EXPOSE 443
 EXPOSE 22
@@ -25,6 +35,5 @@ EXPOSE 9200
 EXPOSE 5601
 EXPOSE 8080
 
-# Start the vulnerable service
-CMD ["vulnerable-service"]
-
+# Start the vulnerable service and SSH service
+CMD ["vulnerable-service", "&", "/usr/sbin/sshd", "-D"]
