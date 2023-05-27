@@ -2,16 +2,17 @@ Challenge 2: Web Application Vulnerabilities
 
 Welcome to Challenge 2!
 
-Your objective is to identify and exploit a cross-site scripting (XSS) vulnerability in the Example Web App.
+Your objective is to identify and exploit a SQL injection (SQLi) vulnerability in the XIPE Corp Workers webapp.
 
 To get started, follow these steps:
 
-1. Access the Example Web App: Visit the following URL [provide the URL or IP address] to access the web app.
-2. Login: You can use any username and password to login; authentication is not enforced for this challenge.
-3. Explore the app: After login, you will see a form where you can enter your name.
-4. Exploit the XSS vulnerability: Inject malicious code into the name input field to execute a script and display an alert box with the text "XSS Exploited!".
+1. Access the Example Web App: Visit the URL from challenge 1 to access the web app.
+2. Login: Use the provided login form on the web app. Enter a username and password of your choice. Note that the authentication mechanism is not enforced for this challenge.
+3. Explore the app: Once logged in, you will see a message.
+4. Exploit the SQLi vulnerability: Inject malicious SQL code into the username or password field to manipulate the query and bypass the authentication. Your goal is to log in as a different user or gain unauthorized access.
+5. Capture screenshots or save the necessary information as evidence of successful exploitation.
 
-Capture screenshots or save the necessary information as evidence of successful exploitation.
+Remember, the purpose of this challenge is to understand the risks associated with SQL injection vulnerabilities. Be responsible and avoid causing any harm to the web app or its users.
 
 Good luck!
 

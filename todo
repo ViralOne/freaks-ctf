@@ -10,9 +10,9 @@ Challenge - 2
  - PHP WebApp
    - Login
    - Home
-      - Each user has a different message
+      - Each user has a different status message
       - The default user gives access to home
-      - Now need to XSS vulnerability and list all users
+      - Now need to SQLi vulnerability
       - One of those users when logged in has a file/message on home this will complete challenge 2
 
 Challenge - 3
@@ -31,3 +31,7 @@ Challenge - 5
     - The credentials are in the page, they need to find them
     - Once authentificated it will need two keys
     - The key will be something from a different challenge that needs to be saved for later
+
+Challenge level checker & helper
+ - After completing a challenge you are required to answer a question or more
+ - Based on the answer you will get the instructions for the next challenge or be asked if you want tips

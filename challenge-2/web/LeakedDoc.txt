@@ -1,4 +1,4 @@
-Original Message: "The secret code is 12345"
+Original Message: "The secret code is justanothersecretkey"
 
     Base64 Encoding:
         Encrypted Message: "VGhlIHNlY3JldCBjb2RlIGlzIDEyMzQ1"
