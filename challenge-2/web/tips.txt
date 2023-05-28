@@ -1,0 +1,4 @@
+Affine Cipher: DWCzEqCyFJzVzfXDwdi1WDDM7yWjuZx09AXqaUf24p5Jr+nuY4Wmqcd/PYwZOly++pmu
+SAML: BUAxCoAwDHxTxdVBubg1UBBK7wUhsXv09YVoySd24n5Hp+lsW4Ukoab/NWuXMjw++nks
+Base64: ZDQxZTk4ZDFlYWZhNmQ2MDExZDNhNzBmMWE1YjkyZjA=
+MD5: d41e98d1eafa6d6011d3a70f1a5b92f0

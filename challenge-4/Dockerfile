@@ -8,7 +8,7 @@ RUN apt-get install -y python3
 
 # Configure SSH server
 RUN mkdir /var/run/sshd
-RUN echo 'root:passwordisnotvalid' | chpasswd
+RUN echo 'root:M0r3Lor3' | chpasswd
 RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
 # Expose SSH port

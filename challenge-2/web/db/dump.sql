@@ -19,7 +19,7 @@ VALUES ('johndoe', 'password123', 'Out of office - taking a well-deserved break!
        ('amynguyen', 'password!@#', 'In a state of flow, do not disturb'),
        ('peteradams', 'p@ssw0rd', 'Taking a coffee break ☕️'),
        ('laurasmith', 'password789', 'Diving into data and crunching numbers'),
-       ('markjohnson', 'markpass123', 'Channeling my inner ninja, mastering the art of productivity'),
+       ('rootchat', 'M0r3Lor3', 'Find me root@192.168.10.232'),
        ('julieroberts', 'juliepass', 'Busy coding away 💻'),
        ('ryancooper', 'password321', 'Preparing for a presentation 📊'),
        ('karenthompson', 'pass@123', 'On a lunch break 🍽️'),

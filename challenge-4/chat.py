@@ -76,7 +76,7 @@ print("Follow the instructions carefully.\n")
 try:
     while True:
         choice = input("Enter the secret key to get logged in into the secured conversation or 'exit' to quit: ")
-        if choice.lower() == 'justanothersecretkey':
+        if choice.lower() == 'Passw0rd':
             perform_social_engineering()
         elif choice.lower() == 'exit':
             break
