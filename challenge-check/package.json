@@ -1,0 +1,16 @@
+{
+  "name": "challenge-check",
+  "version": "1.0.0",
+  "description": "To run the app: node app.js",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

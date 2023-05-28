@@ -6,7 +6,7 @@ Challenge - 1 -> to test, kinda done
       - The secret is user:pass & url
    - One one of those apps it will be a http server with a file attached to the html hidden kind of thing, where the user needs to look into the source code and save the password for later.
 
-Challenge - 2
+Challenge - 2 -> to test, kinda done
  - PHP WebApp
    - Login
    - Home
@@ -15,13 +15,13 @@ Challenge - 2
       - Now need to SQLi vulnerability
       - One of those users when logged in has a file/message on home this will complete challenge 2
 
-Challenge - 3
+Challenge - 3 -> to test, kinda done
  - By using the file/message from challenge 2
     - Decrypt the message?
     - The key needs to be a hint for the python script
     - The message links to something where the python chat docker runs
 
-Challenge - 4
+Challenge - 4 -> to test, kinda done
  - Go through the challenge in the end it will give an URL
 
 Challenge - 5
@@ -32,6 +32,6 @@ Challenge - 5
     - Once authentificated it will need two keys
     - The key will be something from a different challenge that needs to be saved for later
 
-Challenge level checker & helper
+Challenge level checker & helper -> to test, kinda done
  - After completing a challenge you are required to answer a question or more
  - Based on the answer you will get the instructions for the next challenge or be asked if you want tips
