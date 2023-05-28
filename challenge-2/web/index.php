@@ -5,7 +5,7 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 
 // Connect to the database
-$db = mysqli_connect("localhost", "root", "password", "my_database");
+$db = mysqli_connect("localhost", "admindb", "veryhardpwd!", "workers");
 
 // Construct the query (with SQLi vulnerability)
 $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";

@@ -12,7 +12,7 @@ WORKDIR /home/mikel
 
 # Copy secret to pod
 COPY top_secret_plans.txt .
-COPY ./web/index.html /usr/share/nginx/html/
+COPY ./web/ /usr/share/nginx/html/
 
 # Create the worker user
 RUN useradd -m worker && \
