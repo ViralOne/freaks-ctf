@@ -11,7 +11,7 @@ USER mikel
 WORKDIR /home/mikel
 
 # Copy secret to pod
-COPY top_secret_plans.txt .
+COPY ./notes/ .
 COPY ./web/ /usr/share/nginx/html/
 
 # Create the worker user

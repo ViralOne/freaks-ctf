@@ -1,7 +1,18 @@
-import random
-import time
+const express = require('express');
+const bodyParser = require('body-parser');
 
-worker_sentences = [
+const app = express();
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+// Set up static file serving from the public directory
+app.use(express.static('public'));
+
+const correctPassword = 'Passw0rd';
+const correctBadge = 'AF0069';
+
+// Define the messages array
+const messages = [
     "We have strict security measures in place to protect the nuclear facility. I mean, we even have a bouncer at the entrance. He checks IDs and dance moves.",
     "The nuclear reactor is operating at full capacity. It's like the Energizer Bunny on steroids, just keeps going and going.",
     "Somebody needs to clean the reactor, who is in line? I swear, it's like trying to assign chores to a bunch of teenagers. Good luck with that!",
@@ -22,65 +33,42 @@ worker_sentences = [
     "Regular maintenance and inspections are carried out to ensure equipment reliability. It's like giving your car a regular oil change, except here we're dealing with machines that have a little more 'boom' potential.",
     "Our team is prepared to respond to any potential nuclear incidents. It's like a high-stakes game of Whack-a-Mole, except instead of moles, we're dealing with radioactive leaks. Fun times, right?",
     "We work closely with regulatory agencies to maintain the highest safety standards. It's like having an overbearing parent who constantly checks if you've brushed your teeth. Except in this case, it's all about preventing meltdowns."
-]
+];
 
-random.shuffle(worker_sentences)
+// Handle the authentication request
+app.post('/authenticate', (req, res) => {
+    const { name, password } = req.body;
+  
+    // Perform password verification
+    if (password === correctPassword && name === correctBadge) {
+      // Return a success response with a session token or any other necessary data
+      res.json({ success: true, message: 'Authentication successful' });
+    } else {
+      // Return an error response
+      res.status(401).json({ success: false, message: 'Invalid credentials' });
+    }
+  });
 
+// Generate a random message from the messages array
+const getRandomMessage = () => {
+  const randomIndex = Math.floor(Math.random() * messages.length);
+  return messages[randomIndex];
+};
 
-def send_message(sender, recipient, message):
-    print(f"\n[Message Sent] From: {sender}\n[Message Sent] To: {recipient}\n[Message Sent] Message: {message}\n")
-    time.sleep(1)  # Simulating message sending delay
+// Handle the chat request
+app.get('/chat', (req, res) => {
+  const { message } = req.query;
 
-def receive_message(sender, recipient, message):
-    print(f"\n[Message Received] From: {sender}\n[Message Received] To: {recipient}\n[Message Received] Message: {message}\n")
-    time.sleep(1)  # Simulating message receiving delay
+  // Check if the message matches the specific condition
+  if (message === '123') {
+    res.send("Check this out, I found this link http://192.168.10.69:3131 when looking through files, it looks so 2000");
+  } else {
+    const randomMessage = getRandomMessage();
+    res.send(randomMessage);
+  }
+});
 
-def perform_social_engineering():
-    # Step 1: Set up the conversation
-    print("Connecting to the secured node...")
-    time.sleep(1)
-    worker_name = "John"  # Worker's name (can be customized)
-    attacker_name = input("Enter your name: ")
-    print(f"\nWelcome, {attacker_name}! You are now connected with {worker_name}.\n")
-
-    # Step 2: Conversation loop
-    while True:
-        # Attacker sends a message
-        attacker_message = input(f"{attacker_name}: ")
-        send_message(attacker_name, worker_name, attacker_message)
-
-        # Check if the attacker convinces the worker to give access to a file
-        if "i want to go home" in attacker_message.lower():
-            send_message(worker_name, attacker_name, "same my dude, let me show you something cool")
-            time.sleep(2)
-            print(f"\n{worker_name} is sending a message...\n")
-            time.sleep(2)
-            print(f"\nThe Tor Node is being changed please wait...\n")
-            time.sleep(2)
-            print(f"\nNo internet connection.\n")
-            time.sleep(5)
-            print(f"\nSecured Internet connection thorugh Frankfurt Tor node was re-established\n")
-            time.sleep(2)
-            send_message(worker_name, attacker_name, "Check this out, I found this link http://192.168.10.69:3131 when looking through files, it looks so 2000'")
-        else:
-            # Worker responds
-            response = random.choice(worker_sentences)
-            send_message(worker_name, attacker_name, response)
-
-
-# Main program
-print("==== Private communication line ====")
-print("You are being connected to the private chat.")
-print("Follow the instructions carefully.\n")
-
-try:
-    while True:
-        choice = input("Enter the secret key to get logged in into the secured conversation or 'exit' to quit: ")
-        if choice.lower() == 'Passw0rd':
-            perform_social_engineering()
-        elif choice.lower() == 'exit':
-            break
-        else:
-            print("Invalid choice. Please try again.\n")
-except KeyboardInterrupt:
-    print("\nChat disconnected...")
+// Start the server
+app.listen(8085, () => {
+  console.log('Server is running on port 8085');
+});

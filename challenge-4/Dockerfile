@@ -1,24 +1,20 @@
-FROM ubuntu:latest
+# Use a Node.js base image
+FROM node:18
 
-# Install OpenSSH server
-RUN apt-get update && apt-get install -y openssh-server
+# Set the working directory in the container
+WORKDIR /app
 
-# Install Python
-RUN apt-get install -y python3
+# Copy package.json and package-lock.json to the working directory
+COPY package.json package-lock.json ./
 
-# Configure SSH server
-RUN mkdir /var/run/sshd
-RUN echo 'root:M0r3Lor3' | chpasswd
-RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+# Install app dependencies
+RUN npm install --production
 
-# Expose SSH port
-EXPOSE 22
+# Copy the rest of the application code
+COPY . .
 
-# Add the Python script to the image
-COPY chat.py /root/chat.py
+# Expose the port on which the app listens
+EXPOSE 8085
 
-# Set the Python script as the entry point
-ENTRYPOINT ["python3", "/root/chat.py"]
-
-# Start the SSH server
-CMD ["/usr/sbin/sshd", "-D"]
+# Start the Node.js application
+CMD ["node", "app.js"]
