@@ -1,0 +1,99 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: challenge-1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: challenge-1
+  template:
+    metadata:
+      labels:
+        app: challenge-1
+    spec:
+      containers:
+        - name: challenge-1
+          image: viralnico/challange-1:latest
+          resources:
+            limits:
+              cpu: 256m
+              memory: 512Mi
+            requests:
+              cpu: 256m
+              memory: 512Mi
+          ports:
+            - containerPort: 80
+              name: http
+            - containerPort: 20
+              name: ftp-data
+            - containerPort: 21
+              name: ftp-control
+            - containerPort: 22
+              name: ssh
+            - containerPort: 443
+              name: https
+            - containerPort: 3306
+              name: mysql
+            - containerPort: 27017
+              name: mongodb
+            - containerPort: 6379
+              name: redis
+            - containerPort: 5432
+              name: postgresql
+            - containerPort: 9200
+              name: elasticsearch
+            - containerPort: 5601
+              name: kibana
+            - containerPort: 8080
+              name: custom-port
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: challenge-1-service
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-internal: 0.0.0.0/0
+    metallb.universe.tf/allow-shared-ip: "challenge-1-192.168.0.244"
+spec:
+  selector:
+    app: challenge-1
+  type: LoadBalancer
+  loadBalancerIP: 192.168.0.244
+  ports:
+    - port: 80
+      name: http
+      targetPort: 85
+    - port: 20
+      name: ftp-data
+      targetPort: 20
+    - port: 21
+      name: ftp-control
+      targetPort: 21
+    - port: 22
+      name: ssh
+      targetPort: 22
+    - port: 443
+      name: https
+      targetPort: 443
+    - port: 3306
+      name: mysql
+      targetPort: 3306
+    - port: 27017
+      name: mongodb
+      targetPort: 27017
+    - port: 6379
+      name: redis
+      targetPort: 6379
+    - port: 5432
+      name: postgresql
+      targetPort: 5432
+    - port: 9200
+      name: elasticsearch
+      targetPort: 809200
+    - port: 5601
+      name: kibana
+      targetPort: 5601
+    - port: 8080
+      name: custom-port
+      targetPort: 8080
