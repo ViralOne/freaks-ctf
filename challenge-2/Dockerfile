@@ -9,11 +9,11 @@ RUN apt-get update && apt-get install -y \
     default-mysql-server
 
 # Copy PHP files to the container
-COPY ./WebApp/ /var/www/html/
+COPY ./WebApp /var/www/html/
 
 # Copy MySQL configuration file
 COPY my.cnf /etc/mysql/my.cnf
-COPY db/ /docker-entrypoint-initdb.d/
+COPY ./db /docker-entrypoint-initdb.d/
 
 # Set the working directory
 WORKDIR /var/www/html

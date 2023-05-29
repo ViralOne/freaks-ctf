@@ -1,39 +1,33 @@
+# Base image
 FROM ubuntu:latest
 
-# Install packages
-RUN apt-get update && apt-get install -y \
-    vulnerable-service \
-    nginx \
-    openssh-server
+# Install necessary packages
+RUN apt-get update \
+    && apt-get install -y \
+        apache2 \
+        vsftpd \
+        openssh-server
 
-# Create user
-USER mikel
-WORKDIR /home/mikel
+# Configure Apache for HTTP server
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
-# Copy secret to pod
-COPY ./notes/ .
-COPY ./web/ /usr/share/nginx/html/
+# Copy web folder to Apache HTTP folder
+COPY ./web /var/www/html
 
-# Create the worker user
-RUN useradd -m worker && \
-    echo 'worker:enterpassword' | chpasswd
+# Configure vsftpd for FTP server
+RUN sed -i 's/anonymous_enable=NO/anonymous_enable=YES/' /etc/vsftpd.conf
 
-# Enable SSH
-RUN mkdir /var/run/sshd && \
-    echo 'PermitRootLogin no' >> /etc/ssh/sshd_config
+RUN useradd worker
 
-# Set up the necessary network configuration and expose the vulnerable ports
-EXPOSE 21
-EXPOSE 80
-EXPOSE 443
-EXPOSE 22
-EXPOSE 3306
-EXPOSE 27017
-EXPOSE 6379
-EXPOSE 5432
-EXPOSE 9200
-EXPOSE 5601
-EXPOSE 8080
+# Configure SSH server
+RUN echo 'worker:enterpassword' | chpasswd
+RUN mkdir /var/run/sshd
 
-# Start the vulnerable service and SSH service
-CMD ["vulnerable-service", "&", "/usr/sbin/sshd", "-D"]
+# Copy local folder to container
+COPY ./notes /home/worker/notes
+
+# Expose ports for HTTP (80), FTP (20-21), and SSH (22)
+EXPOSE 80 20-21 22 443 3306 27017 6379 5432 9200 5601 8080
+
+# Start the services
+CMD service apache2 start && service vsftpd start && /usr/sbin/sshd -D
