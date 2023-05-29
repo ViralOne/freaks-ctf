@@ -1,29 +1,64 @@
-<?php
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XIPE Corp - Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #333;
+            color: #fff;
+        }
 
-// Get user input from a form
-$username = $_POST['username'];
-$password = $_POST['password'];
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
-// Connect to the database
-$db = mysqli_connect("localhost", "admindb", "veryhardpwd!", "workers");
+        .login-form {
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #444;
+        }
 
-// Construct the query (with SQLi vulnerability)
-$query = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+        .login-form input {
+            width: 90%;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
 
-// Execute the query
-$result = mysqli_query($db, $query);
+        .login-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+        }
 
-// Check if the query returned any rows
-if (mysqli_num_rows($result) == 1) {
-    // User exists, display a welcome message
-    $row = mysqli_fetch_assoc($result);
-    echo "Welcome, " . $row['message'] . "!";
-} else {
-    // User does not exist, display an error message
-    echo "Invalid username or password.";
-}
+        .login-form h2 {
+            margin-top: 0;
+        }
 
-// Close the database connection
-mysqli_close($db);
-
-?>
+        .login-form p {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-form">
+            <h2>XIPE Corp Nuclear Plant</h2>
+            <p>Workers Status Login</p>
+            <form method="post" action="login.php">
+                <input type="text" name="username" placeholder="Username" required><br>
+                <input type="password" name="password" placeholder="Password" required><br>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

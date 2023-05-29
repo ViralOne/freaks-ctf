@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  c2-web-mysql:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8035:80
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=Passw0rd
+      - MYSQL_USER=admindb
+      - MYSQL_PASSWORD=Passw0rd
+      - MYSQL_DATABASE=workers
