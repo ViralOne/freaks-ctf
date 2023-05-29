@@ -1,0 +1,66 @@
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a202c;
+    color: white;
+    max-width: 100%; /* Add this line */
+    margin-left: auto; /* Add this line */
+    margin-right: auto; /* Add this line */
+}
+  
+#chatContainer {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 2rem;
+}
+  
+.message {
+    display: flex;
+    justify-content: flex-start;
+}
+  
+.message.sent {
+    justify-content: flex-end;
+}
+  
+.message .content {
+    max-width: 75%;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    border-radius: 0.5rem;
+}
+  
+.message.sent .content {
+    background-color: #4F46E5;
+    color: white;
+}
+  
+.message.received .content {
+    background-color: #F3F4F6;
+    color: black;
+}
+  
+#authenticationContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #2d3748;
+    padding: 2rem;
+    border-radius: 0.5rem;
+}
+  
+#authenticateButton {
+    background-color: #4F46E5;
+}
+  
+#authenticateButton:hover {
+    background-color: #6B63F8;
+}
+  
+#errorMessage {
+    color: #FF4D4D;
+}
+  
