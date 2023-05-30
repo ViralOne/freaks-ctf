@@ -41,6 +41,7 @@ const authenticateUser = () => {
 
         if (success) {
         authenticationContainer.classList.add('hidden');
+        authenticationContainer.remove();
         chatContainer.classList.remove('hidden');
         chatBox.classList.remove('hidden');
         } else {
@@ -58,14 +59,31 @@ authenticateButton.addEventListener('click', () => {
     authenticateUser();
 });
 
-// Event listener for the send button
-sendButton.addEventListener('click', () => {
-    const message = messageInput.value.trim();
+document.getElementById('passwordInput').onkeypress = function(e){
+    if (!e) e = window.event;
+    var keyCode = e.code || e.key;
+    if (keyCode == 'Enter'){
+      authenticateUser();
+      return false;
+    }
+  }
 
-    if (message !== '') {
+// Event listener for the send button and Enter key press
+sendButton.addEventListener('click', sendMessage);
+messageInput.addEventListener('keydown', function (event) {
+  if (event.key === 'Enter') {
+    sendMessage();
+  }
+});
+
+function sendMessage() {
+  const message = messageInput.value.trim();
+
+  if (message !== '') {
     // Send the message to the server
-    axios.get('/chat', { params: { message } })
-        .then((response) => {
+    axios
+      .get('/chat', { params: { message } })
+      .then((response) => {
         const receivedMessage = response.data;
 
         // Generate a random delay between 0.5 and 2 seconds
@@ -75,12 +93,12 @@ sendButton.addEventListener('click', () => {
 
         addMessageToChat('You', message);
         addDelayedMessageToChat('John', receivedMessage, delay);
-        })
-        .catch((error) => {
+      })
+      .catch((error) => {
         console.error(error);
-        });
+      });
 
     // Clear the input field
     messageInput.value = '';
-    }
-});
+  }
+}

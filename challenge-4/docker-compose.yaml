@@ -7,4 +7,4 @@ services:
     ports:
       - 8085:8085
     volumes:
-      - .:/home/node/app
+      - ./web:/home/node/app

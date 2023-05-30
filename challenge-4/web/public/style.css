@@ -63,4 +63,15 @@
 #errorMessage {
     color: #FF4D4D;
 }
-  
+
+input {
+    color: black;
+}
+
+.hidden {
+    display: none;
+}
+
+#chatBox {
+    width: 100%;
+}
