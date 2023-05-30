@@ -1,0 +1,17 @@
+# Base image
+FROM php:7.4-apache
+
+# Install dependencies
+RUN apt-get update && \
+    apt-get install -y \
+        libpng-dev \
+        libonig-dev \
+        libxml2-dev \
+        && \
+    docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd mysqli
+
+# Copy the web folder to Apache's document root
+COPY web/ /var/www/html/
+
+# Copy Apache configuration
+COPY apache-config.conf /etc/apache2/sites-available/000-default.conf
