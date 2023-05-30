@@ -12,3 +12,6 @@ services:
       - MYSQL_USER=admindb
       - MYSQL_PASSWORD=Passw0rd
       - MYSQL_DATABASE=workers
+    volumes:
+      - ./web:/var/www/html
+      # - ./mysql-data:/var/lib/mysql
