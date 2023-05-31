@@ -5,18 +5,15 @@
  |  _|| | |  __/ (_| |   <\__ \_____| |___| |_|  _|  
  |_|  |_|  \___|\__,_|_|\_\___/      \____|\__|_|    
                                                      
-level0@gracker.org's password:
+worker@freaks.ctf:
 ┌────────────────────┐
-│ HACK THE PLANET!   │
+│ SAVE THE PLANET!   │
 └────────────────────┘
-┌───────────────────────────────────────────────────────────────────────────┐
-│ > if this is your first time, read the README: cat /home/level0/README <  │
-├──────────────────────────────────────────────────────────────────────────┬┘
+┌──────────────────────────────────────────────────────────────────────────┐
 │ Quick Overview:                                                          │
 │                                                                          │
-│    - your goal is to get access to the next level                        │
-│    - flags/passwords are in ~/.pass                                      │
-│    - Admin: minichalls@smrrd.de                                          │
+│    - Read welcome.txt                                                    │
+│    - Questions: Message the host of the event                            │
 ├──────────────────────────────────────────────────────────────────────────┤
 │ Rules:                                                                   │
 │                                                                          │
@@ -24,9 +21,7 @@ level0@gracker.org's password:
 │    2. Don't connect to remote systems                                    │
 │    3. Don't use too many resources                                       │
 │    4. Do not spoil challenges in any way (no writeups!)                  │
-├──────────────────────────────────────────────────────────────────────────┴┐
-│ > if this is your first time, read the README: cat /home/level0/README <  │
-└───────────────────────────────────────────────────────────────────────────┘
+└──────────────────────────────────────────────────────────────────────────┘
 ┌────────────────────────────────────┐ ┌───────────────────────────────────┐
 │ Linux Commands Examples...         │ │ Show the content of a file:       │
 │                                    │ │    `cat ~/iwashere`               │
@@ -41,12 +36,10 @@ level0@gracker.org's password:
 │                                    │ │  `vim` editor. Use arrow keys to  │
 │ create a directory:                │ │  browse the document and read it. │
 │   `mkdir /tmp/myfiles`             │ │                                   │
-│                                    │ │ Don't forget to read the README...│
-│ execute a file:                    │ │ and have fun!                     │
+│                                    │ │           motd from:              │
+│ execute a file:                    │ │          gracker.org              │
 │   `id` `/usr/bin/id` `./level0`    │ │                                   │
-├────────────────────────────────────┴─┴───────────────────────────────────┴┐
-│         Questions, problems, or just want to hang out and chat?           │
-│                       Slack Channel: #ctf-challenge                       │
-└───────────────────────────────────────────────────────────────────────────┘
-
-https://coggle.it/?org=0#ZHOC8J-I6DjyQQim
+├────────────────────────────────────┴─┴───────────────────────────────────┤
+│         Questions, problems, or just want to hang out and chat?          │
+│                       Slack Channel: #ctf-challenge                      │
+└──────────────────────────────────────────────────────────────────────────┘
