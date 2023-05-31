@@ -13,8 +13,8 @@ include(dirname(__FILE__) . '/login.php');
             <h2>XIPE Corp Nuclear Plant</h2>
             <p>Workers Status Login</p>
             <form method="post" action="login.php">
-                <input type="text" name="username" placeholder="Username" required><br>
-                <input type="password" name="password" placeholder="Password" required><br>
+                <input type="text" name="username" placeholder="Username"><br>
+                <input type="password" name="password" placeholder="Password"><br>
                 <button type="submit">Login</button>
             </form>
         </div>

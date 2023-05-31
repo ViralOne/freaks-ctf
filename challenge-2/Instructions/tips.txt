@@ -1,3 +1,4 @@
 Tips (they need to ask for):
-   - Try entering `' OR '1'='1' --` as the username or password to see if you can bypass the authentication and log in as another user.
+   - Try entering:
+   ' OR 1=1-- for both user and pass
    - Experiment with different inputs to exploit the vulnerability and gain unauthorized access.
