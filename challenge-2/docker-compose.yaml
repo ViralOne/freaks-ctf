@@ -16,6 +16,8 @@ services:
       dockerfile: Dockerfile.db
     environment:
       - MYSQL_ROOT_PASSWORD=Passw0rd
-      - MYSQL_USER=admindb
+      - MYSQL_USER=root
       - MYSQL_PASSWORD=Passw0rd
       - MYSQL_DATABASE=workers
+    volumes:
+      - ./db-data:/var/lib/mysql

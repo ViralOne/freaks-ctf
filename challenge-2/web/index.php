@@ -1,3 +1,6 @@
+<?php
+include(dirname(__FILE__) . '/login.php');
+?>
 <!DOCTYPE html>
 <html>
 <head>
