@@ -1,23 +1,20 @@
-# Use a PHP base image
-FROM php:7.4-apache
+# Use a Node.js base image
+FROM node:20-alpine
 
-# Copy the PHP files to the Apache document root
-COPY web/ /var/www/html/
+# Set the working directory inside the container
+WORKDIR /app
 
-# Enable Apache rewrite module for URL rewriting
-RUN a2enmod rewrite
+# Copy the package.json and package-lock.json files
+COPY ./web/package*.json ./
 
-# Set the document root and enable .htaccess overrides
-RUN sed -i 's|/var/www/html|/var/www/html/public|' /etc/apache2/sites-available/000-default.conf
-RUN printf "<Directory \"/var/www/html/public\">\n\tAllowOverride All\n</Directory>\n" >> /etc/apache2/sites-available/000-default.conf
+# Install project dependencies
+RUN npm install
 
-# Install PHP extensions required by the application
-RUN apt-get update && apt-get install -y \
-    libzip-dev \
-    && docker-php-ext-install zip
+# Copy the application code
+COPY ./web .
 
-# Set the timezone to match the application's timezone
-RUN echo "date.timezone = UTC" > /usr/local/etc/php/conf.d/timezone.ini
+# Expose the port your application will listen on
+EXPOSE 3000
 
-# Start Apache
-CMD ["apache2-foreground"]
+# Set the command to run your Node.js application
+CMD ["node", "server.js"]

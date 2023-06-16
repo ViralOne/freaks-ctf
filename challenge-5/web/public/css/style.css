@@ -1,0 +1,44 @@
+/* public/css/style.css */
+/* ... */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  
+  canvas {
+    width: 100% !important;
+    max-width: 400px;
+    height: 300px !important;
+    margin: 0 auto;
+  }
+  
+  @media (max-width: 768px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  
+    canvas {
+      height: 250px !important;
+    }
+  }
+  
+  .chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .chart {
+    width: 500px;
+    height: 400px;
+  }
+
+  .bar-chart {
+    width: 600px;
+    height: 400px;
+  }
