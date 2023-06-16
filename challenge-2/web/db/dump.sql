@@ -20,7 +20,7 @@ VALUES ('johndoe', 'password123', 'Out of office - taking a well-deserved break'
        ('amynguyen', 'password!@#', 'In a state of flow, do not disturb'),
        ('peteradams', 'p@ssw0rd', 'Taking a coffee break '),
        ('laurasmith', 'password789', 'Diving into data and crunching number'),
-       ('rootchat', 'M0r3Lor3', 'Find me root@192.168.0.23'),
+       ('rootchat', 'M0r3Lor3', 'Find me  on port 222 modchat@192.168.0.23'),
        ('julieroberts', 'juliepass', 'Busy coding away'),
        ('ryancooper', 'password321', 'Preparing for a presentation'),
        ('karenthompson', 'pass@123', 'On a lunch break'),
@@ -28,7 +28,7 @@ VALUES ('johndoe', 'password123', 'Out of office - taking a well-deserved break'
        ('susanwilson', 'pass789word', 'Collaborating with the team on a new feature'),
        ('danieljackson', 'danielpass', 'Taking a coding break, playing ping pong'),
        ('hannahbrown', 'password123!', 'Cracking the code and making magic happen'),
-       ('robertrodriguez', 'password987', 'Away from the keyboard, taking a break'),
+       ('buliver', 'password987', 'How do I exit VIM?'),
        ('lilywilliams', 'pass@456', 'Attending a professional development workshop'),
        ('matthewdavis', 'pass123456', 'Attending meetings back-to-back, but reachable');
 

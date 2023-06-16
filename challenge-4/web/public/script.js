@@ -49,7 +49,7 @@ const authenticateUser = () => {
         }
     })
     .catch((error) => {
-        alert("Password is incorrect!");
+        alert("Invalid credentials!");
         console.error(error);
     });
 };

@@ -60,15 +60,21 @@ app.get('/chat', (req, res) => {
   const { message } = req.query;
 
   // Check if the message matches the specific condition
-  if (message === '123') {
-    res.send("Check this out, I found this link http://192.168.10.69:3131 when looking through files, it looks so 2000");
+  if (message.includes(':q')) {
+    res.send("Oooooooh, that was it? It's been 2 weeks since I opened the window, thanks! By the way, check this URL that I found http://someIP:3131 when looking through files, I think it's for nuclear reactor control interface.");
+  } else if (message.includes('help')) {
+    res.send("I don't know if helpes you but you could pay attention to the status from the XIPE Corp Nuclear Plant website");
+  } else if (message.includes('vim')) {
+    res.send("How??");
   } else {
     const randomMessage = getRandomMessage();
     res.send(randomMessage);
   }
 });
 
+
 // Start the server
-app.listen(8085, () => {
-  console.log('Server is running on port 8085');
+const run_on_port = 8085;
+app.listen(run_on_port, () => {
+  console.log('Server is running on port ' + run_on_port);
 });

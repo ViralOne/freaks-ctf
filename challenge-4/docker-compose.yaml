@@ -8,3 +8,11 @@ services:
       - 8085:8085
     volumes:
       - ./web:/home/node/app
+  c4-ssh:
+    build:
+      context: .
+      dockerfile: Dockerfile.ssh
+    ports:
+      - "222:22"
+    volumes:
+      - ./ssh:/home/modchat/personal
