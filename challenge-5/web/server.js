@@ -7,6 +7,7 @@ app.set('view engine', 'ejs');
 
 // Serve static files from the public directory
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: false }));
 
 // Parse JSON request bodies
 app.use(express.json());
@@ -18,14 +19,17 @@ app.get('/', (req, res) => {
 
 // Maintenance menu route
 app.post('/login', (req, res) => {
-  const { username, password } = req.body;
+  const username = req.body.username;
+  const password = req.body.password;
 
-  // Perform password verification
-  if (password === "todo" && username === "todo") {
+  // Here, you can implement your login logic
+  // For simplicity, let's just check if the username and password are both "admin"
+
+  if (username === 'admin' && password === 'admin') {
     res.render('dashboard');
   } else {
-    // Return an error response
-    res.send('<script>alert("Invalid credentials."); window.location="/";</script>');  }
+    res.send('<script>alert("Invalid credentials."); window.location="/";</script>');
+  }
 });
 
 app.listen(port, () => {
