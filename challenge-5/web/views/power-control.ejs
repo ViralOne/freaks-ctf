@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/admin.css">
+  <title>Countdown Page</title>
+</head>
+<body>
+  <div class="countdown">
+    <h1>Extremely high temperatures</h1>
+    <h2>Enter the security tokens to initiate the water cooling process</h2>
+
+    <h1 style="color: red;">Time until explosion</h1>
+    <div id="timer" class="timer"></div>
+  </div>
+
+  <div class="token-inputs">
+    <h2>Access tokens</h2>
+    <form action="/power-token" method="POST">
+      <label for="token1">Token - 1:</label>
+      <input type="text" id="token1" name="token1" required>
+      <br><br>
+      <label for="token2">Token - 2:</label>
+      <input type="text" id="token2" name="token2" required>
+      <br><br>
+      <button type="submit">Submit Tokens</button>
+    </form>
+  </div>
+
+  <script>
+    // Get the remaining time from the server
+    const remainingTime = <%= remainingTime %>;
+  
+    // Set up the countdown timer
+    const timerElement = document.getElementById('timer');
+  
+    const countdown = (time) => {
+      const hours = Math.floor(time / 3600);
+      const minutes = Math.floor((time % 3600) / 60);
+      const seconds = Math.floor(time % 60);
+  
+      timerElement.innerHTML = `
+        <div>Hours: ${hours}</div>
+        <div>Minutes: ${minutes}</div>
+        <div>Seconds: ${seconds}</div>
+      `;
+  
+      if (time > 0) {
+        setTimeout(() => countdown(time - 1), 1000);
+      }
+    };
+  
+    countdown(remainingTime);
+  </script>
+</body>
+</html>

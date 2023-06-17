@@ -1,0 +1,36 @@
+body {
+    background-color: #f3f4f6;
+  }
+  
+  .countdown {
+    text-align: center;
+    margin-top: 100px;
+  }
+  
+  .timer {
+    font-size: 48px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+  }
+  
+  .token-inputs {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .token-inputs form {
+    display: inline-block;
+  }
+  
+  .token-inputs input {
+    margin-top: 10px;
+    padding: 5px;
+    width: 200px;
+  }
+  
+  .token-inputs button {
+    margin-top: 10px;
+    padding: 10px 20px;
+  }
+  

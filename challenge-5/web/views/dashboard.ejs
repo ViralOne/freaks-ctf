@@ -6,6 +6,7 @@
   <title>Nuclear Plant Dashboard</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/apexcharts@3.28.3/dist/apexcharts.min.css">
+  <link rel="stylesheet" href="dashboard.css">
 </head>
 <body class="bg-gray-900 text-white">
   <div class="container mx-auto px-4 py-8">
@@ -64,15 +65,15 @@
       </div>
       <div>
         <h2 class="text-xl font-bold mb-2">Operational Status</h2>
-        <p class="text-2xl mb-4">Operating</p>
+        <p class="text-2xl mb-4">Core temperature too high</p>
       </div>
       <div>
         <h2 class="text-xl font-bold mb-2">Core Temperature</h2>
-        <p class="text-2xl mb-4">300°C</p>
+        <p class="text-2xl mb-4">724°C ⚠</p>
       </div>
       <div>
         <h2 class="text-xl font-bold mb-2">Power Output</h2>
-        <p class="text-2xl mb-4">4,800 MW</p>
+        <p class="text-2xl mb-4">6,800 MW</p>
       </div>
       <div>
         <h2 class="text-xl font-bold mb-2">Fuel Utilization</h2>
@@ -80,7 +81,7 @@
       </div>
       <div>
         <h2 class="text-xl font-bold mb-2">Reactor Efficiency</h2>
-        <p class="text-2xl mb-4">92%</p>
+        <p class="text-2xl mb-4">122%</p>
       </div>
       <div>
         <h2 class="text-xl font-bold mb-2">Fuel Type</h2>
@@ -99,266 +100,27 @@
         </ul>
       </div>
       <div>
-        <h2 class="text-xl font-bold mb-2">Radioactive Waste Management</h2>
-        <p class="text-2xl mb-4">Advanced Storage and Disposal Methods</p>
-      </div>
-      <div>
         <h2 class="text-xl font-bold mb-2">Incident History</h2>
         <ul class="list-disc list-inside">
-          <li class="mb-2">No significant incidents</li>
+          <li class="mb-2">28h ago - An engineer fell into the reactor while doing routine maintenance</li>
         </ul>
       </div>
     </div>
   </div>
 
+  <div class="text-center">
+    <h1 class="text-2xl font-bold mb-4">Power Plant Management - Restricted Access</h1>
+    <form action="/check-token" method="POST">
+      <input class="border border-gray-300 px-4 py-2 rounded" type="text" name="token" placeholder="Enter Access Token" required>
+      <br><br>
+      <button class="bg-blue-500 text-white px-4 py-2 rounded" type="submit">Submit</button>
+    </form>
+    <br>
+    <br>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.28.3/dist/apexcharts.min.js"></script>
-  <script>
-    // Radar Chart
-    const radarOptions = {
-      series: [
-        {
-          name: 'Reactor 1',
-          data: [80, 50, 60, 90, 70]
-        },
-        {
-          name: 'Reactor 2',
-          data: [60, 70, 80, 40, 50]
-        }
-      ],
-      labels: ['Temperature', 'Pressure', 'Power Output', 'Coolant Level', 'Safety'],
-      chart: {
-        height: 350,
-        type: 'radar',
-        background: '#1f2937',
-      },
-      title: {
-        text: 'Reactor Parameters',
-        style: {
-          color: '#ffffff',
-        }
-      },
-    };
+  <script src="/js/chart.js"></script>
 
-    const radarChart = new ApexCharts(document.querySelector("#radarChart"), radarOptions);
-    radarChart.render();
-
-    // Pie Chart
-    const pieOptions = {
-      series: [40, 30, 20],
-      labels: ['Reactor 1', 'Reactor 2', 'Reactor 3'],
-      chart: {
-        type: 'pie',
-        background: '#1f2937',
-      },
-      title: {
-        text: 'Reactor Distribution',
-        style: {
-          color: '#ffffff',
-        }
-      },
-    };
-
-    const pieChart = new ApexCharts(document.querySelector("#pieChart"), pieOptions);
-    pieChart.render();
-
-    // Horizontal Bar Chart
-    const barOptions = {
-      series: [
-        {
-          data: [200, 400, 600, 800, 1000],
-        }
-      ],
-      chart: {
-        type: 'bar',
-        height: 350,
-        stacked: true,
-        background: '#1f2937',
-      },
-      plotOptions: {
-        bar: {
-          horizontal: true,
-        },
-      },
-      xaxis: {
-        categories: ['Reactor 1', 'Reactor 2', 'Reactor 3', 'Reactor 4', 'Reactor 5'],
-      },
-      title: {
-        text: 'Reactor Capacities',
-        style: {
-          color: '#ffffff',
-        }
-      },
-    };
-
-    // Uranium Type Pie Chart
-    const uraniumPieOptions = {
-      series: [35, 30, 35],
-      labels: ['Uranium 235', 'Uranium 238', 'Uranium 239'],
-      chart: {
-        type: 'pie',
-        background: '#1f2937',
-      },
-      title: {
-        text: 'Uranium Type',
-        style: {
-          color: '#ffffff',
-        },
-      },
-    };
-  
-    const uraniumPieChart = new ApexCharts(document.querySelector("#uraniumPieChart"), uraniumPieOptions);
-    uraniumPieChart.render();
-  
-    // Core Temperature Line Chart
-    const coreTemperatureOptions = {
-      series: [
-        {
-          name: 'Core Temperature',
-          data: [300, 310, 320, 315, 325, 330, 335, 330, 340, 345, 350, 360],
-        },
-      ],
-      xaxis: {
-        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-      },
-      chart: {
-        height: 350,
-        type: 'line',
-        background: '#1f2937',
-      },
-      title: {
-        text: 'Core Temperature (Monthly)',
-        style: {
-          color: '#ffffff',
-        },
-      },
-    };
-  
-    const coreTemperatureChart = new ApexCharts(document.querySelector("#coreTemperatureChart"), coreTemperatureOptions);
-    coreTemperatureChart.render();
-  
-    // Power Output Line Chart
-    const powerOutputOptions = {
-      series: [
-        {
-          name: 'Power Output',
-          data: [4800, 4600, 4700, 4500, 4600, 4700, 4800, 4900, 5000, 4900, 4800, 4700],
-        },
-      ],
-      xaxis: {
-        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-      },
-      chart: {
-        height: 350,
-        type: 'line',
-        background: '#1f2937',
-      },
-      title: {
-        text: 'Power Output (Monthly)',
-        style: {
-          color: '#ffffff',
-        },
-      },
-    };
-  
-    const powerOutputChart = new ApexCharts(document.querySelector("#powerOutputChart"), powerOutputOptions);
-    powerOutputChart.render();
-
-    const powerGaugeOptions = {
-      series: [4800], // Current power output value (change this value dynamically)
-
-      chart: {
-        type: 'radialBar',
-        offsetY: -20,
-        sparkline: {
-          enabled: true
-        },
-      },
-      plotOptions: {
-        radialBar: {
-          startAngle: -90,
-          endAngle: 90,
-          hollow: {
-            size: '70%',
-          },
-          dataLabels: {
-            name: {
-              show: false
-            },
-            value: {
-              offsetY: -20,
-              fontSize: '1em',
-              color: '#ffffff',
-              formatter: function(val) {
-                return val + ' MW';
-              }
-            }
-          }
-        }
-      },
-      fill: {
-        type: 'gradient',
-        gradient: {
-          shade: 'dark',
-          shadeIntensity: 0.15,
-          inverseColors: false,
-          opacityFrom: 1,
-          opacityTo: 1,
-          stops: [0, 50, 65, 91]
-        },
-      },
-      stroke: {
-        dashArray: 4
-      },
-      labels: ['Power Output'],
-    };
-
-    const powerGaugeChart = new ApexCharts(document.querySelector("#powerGaugeChart"), powerGaugeOptions);
-    powerGaugeChart.render();
-
-    const polarOptions = {
-      series: [44, 55, 13, 33],
-      labels: ['Reactor 1', 'Reactor 2', 'Reactor 3', 'Reactor 4'],
-      chart: {
-        type: 'polarArea',
-      },
-      plotOptions: {
-        polarArea: {
-          rings: {
-            strokeWidth: 0,
-            strokeColor: '#eaeaea',
-          },
-          spokes: {
-            strokeWidth: 0,
-            connectorColors: '#eaeaea',
-          },
-        }
-      },
-      fill: {
-        opacity: 0.8
-      },
-      colors: ['#008ffb', '#00e396', '#feb019', '#ff4560'],
-      stroke: {
-        width: 0,
-        colors: undefined
-      },
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: 'bottom'
-            }
-          }
-        }
-      ]
-    };
-
-    const polarChart = new ApexCharts(document.querySelector("#polarChart"), polarOptions);
-    polarChart.render();
-  </script>
-  
 </body>
 </html>
