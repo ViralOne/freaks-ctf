@@ -1,6 +1,0 @@
-6 Basil
-4 Apples
-  Sausage
-  Eggplant
-
-Everything it's on the first line that can't be added

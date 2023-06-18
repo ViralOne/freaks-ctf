@@ -10,7 +10,7 @@ CREATE TABLE users (
 INSERT INTO users (username, password, status)
 VALUES ('johndoe', 'password123', 'Out of office - taking a well-deserved break'),
        ('janedoe', 'pass123word', 'Currently on vacation, exploring new horizon'),
-       ('admin', 'f4k3Freak', 'No status'),
+       ('admin', 'f4k3Freak', 'There is no status available at this time'),
        ('mikesmith', 'securepass', 'Taking a quick power nap'),
        ('sarahjones', 'password!23', 'Engrossed in deep work mode, creating something amazing'),
        ('alexwilson', 'alexpass123', 'Busy brainstorming and ideatin'),

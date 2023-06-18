@@ -18,7 +18,9 @@ RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so
 
 WORKDIR /home/modchat
 
-# Expose port 22
+COPY /ssh .
+
+# Expose port 22 and 222
 EXPOSE 22 222
 
 # Start the services

@@ -61,11 +61,11 @@ app.get('/chat', (req, res) => {
 
   // Check if the message matches the specific condition
   if (message.includes(':q')) {
-    res.send("Oooooooh, that was it? It's been 2 weeks since I opened the window, thanks! By the way, check this URL that I found http://someIP:3131 when looking through files, I think it's for nuclear reactor control interface.");
+    res.send("Oooooooh, that was it? It's been 2 weeks since I opened the window, thanks! By the way, check this URL that I found http://someIP:3131 when looking through files, I think it's the nuclear reactor control interface.");
   } else if (message.includes('help')) {
     res.send("I don't know if helpes you but you could pay attention to the status from the XIPE Corp Nuclear Plant website");
   } else if (message.includes('vim')) {
-    res.send("How??");
+    res.send("How do I do that??");
   } else {
     const randomMessage = getRandomMessage();
     res.send(randomMessage);

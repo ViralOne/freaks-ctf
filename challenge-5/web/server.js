@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = 6374;
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
@@ -26,8 +26,8 @@ app.get('/dashboard', (req, res) => {
 });
 
 const tokens = {
-  token1: 'some-random-token1',
-  token2: 'some-random-token2',
+  token1: 'dIzW9htx1Ii5oR4qgoC12XC8bW070cxXBm7IXSTH0YwxKTZDXSlo7KGdy6qMmdL9',
+  token2: 'taSwYsvX53/HrM!eW3ir4TLPphWFHQ0kcCr=p/-k!dBkTkYeqa8T6l/BeMH/OThh',
 };
 
 // Set the expiration date and time

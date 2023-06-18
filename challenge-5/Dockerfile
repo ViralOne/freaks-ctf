@@ -14,7 +14,7 @@ RUN npm install
 COPY ./web .
 
 # Expose the port your application will listen on
-EXPOSE 3000
+EXPOSE 6374
 
 # Set the command to run your Node.js application
 CMD ["node", "server.js"]
