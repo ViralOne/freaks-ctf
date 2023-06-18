@@ -14,4 +14,4 @@ RUN apt-get update && \
 COPY web/ /var/www/html/
 
 # Copy Apache configuration
-COPY apache-config.conf /etc/apache2/sites-available/000-default.conf
+COPY ./ssh/web/apache-config.conf /etc/apache2/sites-available/000-default.conf

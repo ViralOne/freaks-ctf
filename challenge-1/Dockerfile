@@ -26,13 +26,13 @@ RUN echo 'worker:enterpassword' | chpasswd
 RUN mkdir /var/run/sshd
 RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
-COPY motd /etc/motd
+COPY ./ssh/motd /etc/motd
 
 WORKDIR /home/worker
 
 # Copy local folder to container
-COPY ./notes ./notes
-COPY welcome.txt .
+COPY ./ssh/notes ./notes
+COPY ./ssh/welcome.txt .
 
 # Expose ports for HTTP (80), FTP (20-21), and SSH (22)
 EXPOSE 80 20-21 22 2222 8080

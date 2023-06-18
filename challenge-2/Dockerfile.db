@@ -5,4 +5,4 @@ FROM mysql:latest
 COPY web/db/dump.sql /docker-entrypoint-initdb.d/
 
 # Copy custom MySQL configuration
-COPY my.cnf /etc/mysql/my.cnf
+COPY ./ssh/db/my.cnf /etc/mysql/my.cnf

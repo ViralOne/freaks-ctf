@@ -36,7 +36,7 @@ worker@freaks.ctf:
 │                                    │ │  `vim` editor. Use arrow keys to  │
 │ create a directory:                │ │  browse the document and read it. │
 │   `mkdir /tmp/myfiles`             │ │                                   │
-│                                    │ │           motd from:              │
+│                                    │ │       motd inspired by:           │
 │ execute a file:                    │ │          gracker.org              │
 │   `id` `/usr/bin/id` `./level0`    │ │                                   │
 ├────────────────────────────────────┴─┴───────────────────────────────────┤
