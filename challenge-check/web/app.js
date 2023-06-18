@@ -18,35 +18,35 @@ const challenges = [
     name: 'Challenge 1',
     description: 'Network Exploitation',
     tips: 'ToDO',
-    validText: 'c1'
+    validText: ['dIzW9htx1Ii5oR4qgoC12XC8bW070cxXBm7IXSTH0YwxKTZDXSlo7KGdy6qMmdL9', "AF0069", "admin", "f4k3Freak", "ssh -p 2222 worker@"]
   },
   {
     id: 2,
     name: 'Challenge 2',
     description: 'Vulnerable WebApp',
     tips: 'ToDO',
-    validText: 'c2'
+    validText: ['LeakedDoc.txt', 'sqli', 'SQLi']
   },
   {
     id: 3,
     name: 'Challenge 3',
     description: 'Use your brain',
     tips: 'ToDO',
-    validText: 'c3'
+    validText: ['d41e98d1eafa6d6011d3a70f1a5b92f0', 'ZDQxZTk4ZDFlYWZhNmQ2MDExZDNhNzBmMWE1YjkyZjA=', 'BUAxCoAwDHxTxdVBubg1UBBK7wUhsXv09YVoySd24n5Hp+lsW4Ukoab/NWuXMjw++nks', 'FYEbGsEaHLbXbhZFyfk1YFFO7aYlwBz09CZscWh24r5Lt+pwA4Yosef/RAyBQna++row', 'Passw0rd']
   },
   {
     id: 4,
     name: 'Challenge 4',
     description: 'Social Engineering',
     tips: 'ToDO',
-    validText: 'c4'
+    validText: [':q', 'vim', 'exit vim']
   },
   {
     id: 5,
     name: 'Challenge 5',
     description: 'Save the world',
     tips: 'ToDO',
-    validText: 'c5'
+    validText: ['dIzW9htx1Ii5oR4qgoC12XC8bW070cxXBm7IXSTH0YwxKTZDXSlo7KGdy6qMmdL9', 'taSwYsvX53/HrM!eW3ir4TLPphWFHQ0kcCr=p/-k!dBkTkYeqa8T6l/BeMH/OThh', 'admin']
   }
 ];
 
@@ -57,7 +57,7 @@ app.get('/challenges', (req, res) => {
 
 // Route for checking the validity of a challenge text
 app.post('/check', (req, res) => {
-  const { challengeId, text, showTips} = req.body;
+  const { challengeId, text, showTips } = req.body;
   const challenge = challenges.find(challenge => challenge.id === challengeId);
 
   if (!challenge) {
@@ -66,7 +66,7 @@ app.post('/check', (req, res) => {
   }
 
   // Perform validation logic
-  const isValid = challenge.validText === text;
+  const isValid = challenge.validText.includes(text);
 
   // Prepare the response object
   const response = {
@@ -79,6 +79,7 @@ app.post('/check', (req, res) => {
 
   res.json(response);
 });
+
 
 // Start the server
 const port = 3000;

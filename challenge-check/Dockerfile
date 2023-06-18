@@ -6,14 +6,14 @@ RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
 WORKDIR /home/node/app
 
 # Copy the rest of the application code
-COPY package.json ./
+COPY ./web/package.json ./
 
 USER node
 
 # Install app dependencies
 RUN npm i express
 
-COPY --chown=node:node . .
+COPY --chown=node:node ./web .
 
 # Expose the port on which the app listens
 EXPOSE 3000
