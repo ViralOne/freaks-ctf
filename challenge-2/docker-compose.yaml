@@ -1,16 +1,16 @@
 version: "3"
 services:
-  webapp:
+  c3-app:
     build:
       context: .
       dockerfile: Dockerfile.web
     depends_on:
-      - db
+      - c3-db
     ports:
       - "8081:80"
     volumes:
       - ./web:/var/www/html
-  db:
+  c3-db:
     build:
       context: .
       dockerfile: Dockerfile.db

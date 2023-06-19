@@ -1,6 +1,6 @@
 version: '3'
 services:
-  c4-app:
+  c5-app:
     build:
       context: .
       dockerfile: Dockerfile

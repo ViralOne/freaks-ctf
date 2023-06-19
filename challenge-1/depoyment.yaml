@@ -33,18 +33,6 @@ spec:
               name: ssh
             - containerPort: 443
               name: https
-            - containerPort: 3306
-              name: mysql
-            - containerPort: 27017
-              name: mongodb
-            - containerPort: 6379
-              name: redis
-            - containerPort: 5432
-              name: postgresql
-            - containerPort: 9200
-              name: elasticsearch
-            - containerPort: 5601
-              name: kibana
             - containerPort: 8080
               name: custom-port
 ---
@@ -72,28 +60,10 @@ spec:
       targetPort: 21
     - port: 22
       name: ssh
-      targetPort: 22
+      targetPort: 2222
     - port: 443
       name: https
       targetPort: 443
-    - port: 3306
-      name: mysql
-      targetPort: 3306
-    - port: 27017
-      name: mongodb
-      targetPort: 27017
-    - port: 6379
-      name: redis
-      targetPort: 6379
-    - port: 5432
-      name: postgresql
-      targetPort: 5432
-    - port: 9200
-      name: elasticsearch
-      targetPort: 809200
-    - port: 5601
-      name: kibana
-      targetPort: 5601
     - port: 8080
       name: custom-port
       targetPort: 8080
