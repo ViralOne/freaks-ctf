@@ -1,7 +1,7 @@
 <button onclick="history.back()">Go Back</button>
 <?php
 // Database connection details
-$servername = "172.19.0.1"; // Docker network IP
+$servername = "172.23.0.1"; // Docker network IP
 $username = "admindb";
 $password = "Passw0rd";
 $dbname = "workers";

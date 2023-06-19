@@ -6,3 +6,5 @@ services:
       dockerfile: Dockerfile
     ports:
       - 6374:6374
+    volumes:
+      - ./web:/app/

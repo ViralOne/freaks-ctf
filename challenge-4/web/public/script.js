@@ -10,67 +10,69 @@ const chatOutput = document.getElementById('chatOutput');
 
 // Function to add a message to the chat output
 const addMessageToChat = (sender, message) => {
-    const messageContainer = document.createElement('div');
-    messageContainer.classList.add('message');
-    messageContainer.classList.add(sender === 'You' ? 'sent' : 'received');
+  const messageContainer = document.createElement('div');
+  messageContainer.classList.add('message', sender === 'You' ? 'sent' : 'received');
+  
+  const senderName = document.createElement('div');
+  senderName.classList.add('sender');
+  senderName.textContent = sender;
+  
+  const messageContent = document.createElement('div');
+  messageContent.classList.add('content');
+  messageContent.textContent = message;
+  
+  messageContainer.appendChild(senderName);
+  messageContainer.appendChild(messageContent);
+  chatOutput.appendChild(messageContainer);
 
-    const messageContent = document.createElement('div');
-    messageContent.classList.add('content');
-    messageContent.textContent = message;
-
-    messageContainer.appendChild(messageContent);
-    chatOutput.appendChild(messageContainer);
-    chatOutput.scrollTop = chatOutput.scrollHeight; // Auto-scroll to the latest message
+  // Auto-scroll to the latest message
+  chatOutput.scrollTop = chatOutput.scrollHeight;
 };
 
 const addDelayedMessageToChat = (sender, message, delay) => {
-    setTimeout(() => {
+  setTimeout(() => {
     addMessageToChat(sender, message);
-    }, delay);
+  }, delay);
 };
 
 // Function to authenticate the user and show the chat
 const authenticateUser = () => {
-    const name = nameInput.value.trim();
-    const password = passwordInput.value.trim();
+  const name = nameInput.value.trim();
+  const password = passwordInput.value.trim();
 
-    // Send the authentication request to the server
-    axios.post('/authenticate', { name, password })
+  // Send the authentication request to the server
+  axios.post('/authenticate', { name, password })
     .then((response) => {
-        const { success, message } = response.data;
+      const { success, message } = response.data;
 
-        if (success) {
-        authenticationContainer.classList.add('hidden');
+      if (success) {
         authenticationContainer.remove();
         chatContainer.classList.remove('hidden');
         chatBox.classList.remove('hidden');
-        } else {
+      } else {
         alert("Secret key is incorrect!");
-        }
+      }
     })
     .catch((error) => {
-        alert("Invalid credentials!");
-        console.error(error);
+      alert("Invalid credentials!");
+      console.error(error);
     });
 };
 
 // Event listener for the authenticate button
-authenticateButton.addEventListener('click', () => {
-    authenticateUser();
-});
+authenticateButton.addEventListener('click', authenticateUser);
 
-document.getElementById('passwordInput').onkeypress = function(e){
-    if (!e) e = window.event;
-    var keyCode = e.code || e.key;
-    if (keyCode == 'Enter'){
-      authenticateUser();
-      return false;
-    }
+// Event listener for the Enter key press on the password input
+passwordInput.addEventListener('keypress', (event) => {
+  if (event.key === 'Enter') {
+    authenticateUser();
+    event.preventDefault();
   }
+});
 
 // Event listener for the send button and Enter key press
 sendButton.addEventListener('click', sendMessage);
-messageInput.addEventListener('keydown', function (event) {
+messageInput.addEventListener('keydown', (event) => {
   if (event.key === 'Enter') {
     sendMessage();
   }
@@ -81,8 +83,7 @@ function sendMessage() {
 
   if (message !== '') {
     // Send the message to the server
-    axios
-      .get('/chat', { params: { message } })
+    axios.get('/chat', { params: { message } })
       .then((response) => {
         const receivedMessage = response.data;
 
@@ -92,7 +93,7 @@ function sendMessage() {
         const delay = Math.floor(Math.random() * (maxDelay - minDelay + 1)) + minDelay;
 
         addMessageToChat('You', message);
-        addDelayedMessageToChat('John', receivedMessage, delay);
+        addDelayedMessageToChat('Buliver', receivedMessage, delay);
       })
       .catch((error) => {
         console.error(error);

@@ -60,7 +60,7 @@ app.post('/power-token', (req, res) => {
 app.post('/check-token', (req, res) => {
   const { token } = req.body;
 
-  if (token === 'admin') {
+  if (token === 'd22fc547518b36f7ba26acc8cd2f973c') {
     res.redirect('/power-control');
   } else {
     res.send('<script>alert("Invalid token."); window.location="/dashboard";</script>');
