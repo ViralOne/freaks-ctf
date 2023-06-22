@@ -2,6 +2,9 @@ const express = require('express');
 const app = express();
 const port = 6374;
 
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
+
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
@@ -13,8 +16,9 @@ app.get('/', (req, res) => {
 
 app.post('/login', (req, res) => {
   const { username, password } = req.body;
+  res.cookie('role', username);
 
-  if (username === 'admin' && password === 'admin') {
+  if (username === 'worker' && password === 'tempassw0rd') {
     res.redirect('/dashboard');
   } else {
     res.send('<script>alert("Invalid credentials."); window.location="/";</script>');
@@ -22,7 +26,14 @@ app.post('/login', (req, res) => {
 });
 
 app.get('/dashboard', (req, res) => {
-  res.render('dashboard');
+  const { role } = req.cookies;
+
+  if (role === 'admin') {
+    const maliciousScript = `<script>alert(document.cookie)</script>`;
+    res.render('dashboard', { maliciousScript });
+  } else {
+    res.send('<script>alert("Unauthorized access, admin only!"); window.location="/";</script>');
+  }
 });
 
 const tokens = {
