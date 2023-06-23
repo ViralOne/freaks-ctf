@@ -1,0 +1,67 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: challenge-4-web
+spec:
+  selector:
+    app: challenge-4-web
+  ports:
+    - protocol: TCP
+      port: 8085
+      targetPort: 8085
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: challenge-4-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: challenge-4-web
+  template:
+    metadata:
+      labels:
+        app: challenge-4-web
+    spec:
+      containers:
+        - name: challenge-4-web
+          image: viralnico/challenge:4-web
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8085
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: challenge-4-ssh
+spec:
+  selector:
+    app: challenge-4-ssh
+  ports:
+    - protocol: TCP
+      port: 222
+      targetPort: 222
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: challenge-4-ssh
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: challenge-4-ssh
+  template:
+    metadata:
+      labels:
+        app: challenge-4-ssh
+    spec:
+      containers:
+        - name: challenge-4-ssh
+          image: viralnico/challenge:4-ssh
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 222

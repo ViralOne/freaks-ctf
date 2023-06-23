@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: challenge-checker
+spec:
+  selector:
+    app: challenge-checker
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: challenge-checker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: challenge-checker
+  template:
+    metadata:
+      labels:
+        app: challenge-checker
+    spec:
+      containers:
+        - name: challenge-checker
+          image: viralnico/challenge:check
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000

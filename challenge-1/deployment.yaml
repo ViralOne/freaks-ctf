@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: challenge-1
+  name: challenge-1-web
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: challenge-1
+      app: challenge-1-web
   template:
     metadata:
       labels:
-        app: challenge-1
+        app: challenge-1-web
     spec:
       containers:
-        - name: challenge-1
-          image: viralnico/challange-1:latest
+        - name: challenge-1-web
+          image: viralnico/challenge:1
           resources:
             limits:
               cpu: 256m
@@ -39,13 +39,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: challenge-1-service
+  name: challenge-1-web-service
   annotations:
     service.beta.kubernetes.io/aws-load-balancer-internal: 0.0.0.0/0
-    metallb.universe.tf/allow-shared-ip: "challenge-1-192.168.0.244"
+    metallb.universe.tf/allow-shared-ip: "challenge-1-web-192.168.0.244"
 spec:
   selector:
-    app: challenge-1
+    app: challenge-1-web
   type: LoadBalancer
   loadBalancerIP: 192.168.0.244
   ports:
