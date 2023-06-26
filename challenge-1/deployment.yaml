@@ -12,6 +12,8 @@ spec:
       labels:
         app: challenge-1-web
     spec:
+      nodeSelector:
+          worker: isfalse
       containers:
         - name: challenge-1-web
           image: viralnico/challenge:1
@@ -51,7 +53,7 @@ spec:
   ports:
     - port: 80
       name: http
-      targetPort: 85
+      targetPort: 80
     - port: 20
       name: ftp-data
       targetPort: 20
@@ -60,7 +62,7 @@ spec:
       targetPort: 21
     - port: 22
       name: ssh
-      targetPort: 2222
+      targetPort: 22
     - port: 443
       name: https
       targetPort: 443
