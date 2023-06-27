@@ -16,6 +16,7 @@ spec:
           worker: istrue
       containers:
         - name: challenge-1-web
+          imagePullPolicy: Always
           image: viralnico/challenge:1
           resources:
             limits:

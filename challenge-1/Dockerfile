@@ -7,6 +7,7 @@ RUN apt-get update \
         apache2 \
         vsftpd \
         openssh-server \
+        vim \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 

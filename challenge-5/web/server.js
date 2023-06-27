@@ -29,8 +29,7 @@ app.get('/dashboard', (req, res) => {
   const { role } = req.cookies;
 
   if (role === 'admin') {
-    const maliciousScript = `<script>alert(document.cookie)</script>`;
-    res.render('dashboard', { maliciousScript });
+    res.render('dashboard');
   } else {
     res.send('<script>alert("Unauthorized access, admin only!"); window.location="/";</script>');
   }
