@@ -20,7 +20,7 @@ VALUES ('johndoe', 'password123', 'Out of office - taking a well-deserved break'
        ('amynguyen', 'password!@#', 'In a state of flow, do not disturb'),
        ('peteradams', 'p@ssw0rd', 'Taking a coffee break '),
        ('laurasmith', 'password789', 'Diving into data and crunching number'),
-       ('rootchat', 'M0r3Lor3', 'Find me  on port 222 modchat@192.168.0.23'),
+       ('rootchat', 'M0r3Lor3', 'Find me  on port 222 modchat@192.168.0.250'),
        ('julieroberts', 'juliepass', 'Busy coding away'),
        ('ryancooper', 'password321', 'Preparing for a presentation'),
        ('karenthompson', 'pass@123', 'On a lunch break'),

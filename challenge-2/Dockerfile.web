@@ -2,16 +2,35 @@
 FROM php:8.0.28-apache
 
 # Install dependencies
-RUN apt-get update && \
-    apt-get install -y \
-        libpng-dev \
-        libonig-dev \
-        libxml2-dev \
-        && \
-    docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd mysqli
+RUN apt-get update && apt-get install -y \
+    libpng-dev \
+    libonig-dev \
+    libxml2-dev \
+    vim \
+    openssh-server \
+    && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd mysqli \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 # Copy the web folder to Apache's document root
 COPY web/ /var/www/html/
 
 # Copy Apache configuration
 COPY ./ssh/web/apache-config.conf /etc/apache2/sites-available/000-default.conf
+
+# Create 'justuser' user and set password
+RUN useradd -m justuser && \
+    echo 'justuser:thisIsHard' | chpasswd
+
+# Change ownership and permissions of the web folder
+RUN chown -R justuser:justuser /var/www/html \
+    && chmod -R 755 /var/www/html
+
+# Enable password authentication in SSH server config
+RUN sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config
+
+# Expose SSH and Apache ports
+EXPOSE 22 80
+
+# Start SSH and Apache services during container startup
+CMD service ssh start && /usr/sbin/apache2ctl -D FOREGROUND

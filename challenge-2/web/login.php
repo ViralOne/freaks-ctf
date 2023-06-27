@@ -1,7 +1,7 @@
 <button onclick="history.back()">Go Back</button>
 <?php
 // Database connection details
-$servername = getenv('DB_IP');
+$servername = "192.168.0.236"; // change this
 $username = "admindb";
 $password = "Passw0rd";
 $dbname = "workers";

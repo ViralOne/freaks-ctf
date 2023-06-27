@@ -13,7 +13,7 @@ spec:
         app: challenge-1-web
     spec:
       nodeSelector:
-          worker: isfalse
+          worker: istrue
       containers:
         - name: challenge-1-web
           image: viralnico/challenge:1
@@ -44,12 +44,12 @@ metadata:
   name: challenge-1-web-service
   annotations:
     service.beta.kubernetes.io/aws-load-balancer-internal: 0.0.0.0/0
-    metallb.universe.tf/allow-shared-ip: "challenge-1-web-192.168.0.244"
+    metallb.universe.tf/allow-shared-ip: "challenge-1-web-192.168.0.222"
 spec:
   selector:
     app: challenge-1-web
   type: LoadBalancer
-  loadBalancerIP: 192.168.0.244
+  loadBalancerIP: 192.168.0.222
   ports:
     - port: 80
       name: http

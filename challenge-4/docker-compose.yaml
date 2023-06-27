@@ -5,14 +5,8 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - 8085:8085
+      - "8085:8085"
+      - "22:22"
     volumes:
       - ./web:/home/node/app
-  c4-ssh:
-    build:
-      context: .
-      dockerfile: Dockerfile.ssh
-    ports:
-      - "222:22"
-    volumes:
       - ./ssh:/home/modchat/personal

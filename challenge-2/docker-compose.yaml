@@ -8,6 +8,7 @@ services:
       - c2-db
     ports:
       - "8081:80"
+      - "22:22"
     volumes:
       - ./web:/var/www/html
   c2-db:

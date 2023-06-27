@@ -5,7 +5,6 @@ metadata:
   annotations:
     service.beta.kubernetes.io/aws-load-balancer-internal: 0.0.0.0/0
     metallb.universe.tf/allow-shared-ip: "challenge-4-192.168.0.249"
-
 spec:
   selector:
     app: challenge-4-web
@@ -14,6 +13,7 @@ spec:
       port: 8085
       targetPort: 8085
   type: LoadBalancer
+  loadBalancerIP: 192.168.0.249
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -29,6 +29,8 @@ spec:
       labels:
         app: challenge-4-web
     spec:
+      nodeSelector:
+          worker: istrue
       containers:
         - name: challenge-4-web
           image: viralnico/challenge:4-web
@@ -51,6 +53,7 @@ spec:
       port: 222
       targetPort: 22
   type: LoadBalancer
+  loadBalancerIP: 192.168.0.250
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -66,6 +69,8 @@ spec:
       labels:
         app: challenge-4-ssh
     spec:
+      nodeSelector:
+          worker: istrue
       containers:
         - name: challenge-4-ssh
           image: viralnico/challenge:4-ssh
