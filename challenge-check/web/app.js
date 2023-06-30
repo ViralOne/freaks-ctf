@@ -46,7 +46,14 @@ const challenges = [
     name: 'Challenge 5',
     description: 'Save the world',
     tips: 'I love cookies when I am an admin, Dashboard answer its in challenge 4, two long tokens and im done',
-    validText: ['dIzW9htx1Ii5oR4qgoC12XC8bW070cxXBm7IXSTH0YwxKTZDXSlo7KGdy6qMmdL9', 'taSwYsvX53/HrM!eW3ir4TLPphWFHQ0kcCr=p/-k!dBkTkYeqa8T6l/BeMH/OThh', 'admin']
+    validText: ['dIzW9htx1Ii5oR4qgoC12XC8bW070cxXBm7IXSTH0YwxKTZDXSlo7KGdy6qMmdL9', 'admin']
+  },
+  {
+    id: 6,
+    name: 'Challenge 6',
+    description: 'Last token - needs to be completed to finish challenge 5',
+    tips: 'Try different directories & see what can you do with: ; cat',
+    validText: ['taSwYsvX53/HrM!eW3ir4TLPphWFHQ0kcCr=p/-k!dBkTkYeqa8T6l/BeMH/OThh']
   }
 ];
 

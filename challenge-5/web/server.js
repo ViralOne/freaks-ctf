@@ -41,7 +41,7 @@ const tokens = {
 };
 
 // Set the expiration date and time
-const expirationDate = new Date('2023-06-18T00:00:00Z');
+const expirationDate = new Date('2023-06-30T18:00:00Z');
 
 app.get('/power-control', (req, res) => {
   const currentTime = new Date();

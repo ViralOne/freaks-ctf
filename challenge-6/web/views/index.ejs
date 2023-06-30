@@ -1,0 +1,23 @@
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Files</title>
+  <!-- remove on prod user:pass d29ya2VyOnRlbXBhc3N3MHJk -->
+</head>
+<body>
+  <div class="login-box animated fadeInUp">
+    <div class="box-header">
+      <h2>Local files</h2>
+    </div>
+    <form action="/" method="GET">
+      <input type="text" name="folder" value="<%= folder || '' %>">
+      <button type="submit">Show</button>
+
+      <code>
+        <pre><%= output %></pre>
+      </code>
+    </form>
+  </div>
+</body>
+</html>
