@@ -68,7 +68,7 @@ app.get('/chat', (req, res) => {
     messageCount++;
   } else {
     // Check if the message matches specific conditions
-    if (message.includes(':q')) {
+    if (message.includes(':q') || message.includes(':wq')) {
       res.send("Oooooooh, that was it? It's been 2 weeks since I opened the window, thanks! By the way, check this URL that I found http://192.168.0.248:6374 when looking through files, I think it's the nuclear reactor control interface.");
     } else if (message.includes('help')) {
       res.send("I don't know if that helps you, but you could pay attention to the status from the XIPE Corp Nuclear Plant website");
