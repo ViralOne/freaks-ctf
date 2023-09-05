@@ -42,6 +42,10 @@ cd freaks-ctf
 docker-compose up -d
 ```
 
+4. Update the Kubernetes deployment YAML files your own docker image.
+
+5. In the Kubernetes YAML files for your deployments, you will find a "Kind" service that defines the desired IP. The IP address, must be edited to match your specific needs.
+
 ## Prerequisites as Host
 
 Make sure you have the following prerequisites installed on your system:
